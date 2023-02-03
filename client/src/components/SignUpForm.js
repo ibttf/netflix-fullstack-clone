@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-function SignUpForm({ onLogin }) {
+function SignUpForm({ onLogin, setShow }) {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -30,13 +30,18 @@ function SignUpForm({ onLogin }) {
         r.json().then((err) => setErrors(err.errors));
       }
     });
-    history.push("/");
+    history.push("/browse");
   }
 
   return (
     <div className="login-form">
       <h1>Create Account</h1>
       <h2>Please enter your details to make an account.</h2>
+        <div className="errors">
+          {errors.map((err) => (
+            <div key={err} className="error">Oops! {err}</div>
+          ))}
+        </div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input
@@ -66,12 +71,19 @@ function SignUpForm({ onLogin }) {
         />
 
         <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+             <div className="login-text">            
+              <p className="small-text">
+                Don't have an account? &nbsp;
+                <button
+                  onClick={() => {
+                    setShow(true);
+                  }}
+                >
+                  Sign In
+                </button>
+              </p>
+            </div>
 
-        <div className="errors">
-          {errors.map((err) => (
-            <div key={err}>Oops! {err}</div>
-          ))}
-        </div>
       </form>
     </div>
   );

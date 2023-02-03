@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Login from "../pages/Login";
-import EssayList from "../pages/EssayList";
-import NewEssay from "../pages/NewEssay";
-import EssayReview from "../pages/EssayReview";
-import IndividualEssay from "../pages/IndividualEssay";
-import ReviewedEssay from "../pages/ReviewedEssay";
-import UnreviewedEssay from "../pages/UnreviewedEssay";
 import Home from "../pages/Home";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../styles/App.css";
+
+//NEW STUFF
+import Browse from "../pages/Browse";
+import Footer from "./Footer";
+import LoginFooter from "./LoginFooter"
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -28,11 +28,12 @@ function App() {
     <>
       <main>
         <Switch>
-          <Route path="/new">
+          {/* <Route path="/new">
             <NavBar user={user} setUser={setUser} />
             <NewEssay user={user} />
-          </Route>
-          <Route path="/my-essays">
+            <Footer />
+          </Route> */}
+          {/* <Route path="/my-essays">
             <NavBar user={user} setUser={setUser} />
             <EssayList />
           </Route>
@@ -53,14 +54,20 @@ function App() {
           <Route path="/review">
             <NavBar user={user} setUser={setUser} />
             <EssayReview />
+          </Route> */}
+            <Route path="/login">
+              <Login user={user} onLogin={setUser} />
+              <LoginFooter />
           </Route>
-          <Route path="/login">
-            <Login onLogin={setUser} />
+          <Route path="/browse">
+              <NavBar user={user} setUser={setUser} />
+              <Browse user={user} />
+              <Footer />
           </Route>
 
           <Route path="/">
-            <NavBar user={user} setUser={setUser} />
-            <Home user={user} />
+            <Home />
+            <Footer />
           </Route>
         </Switch>
       </main>

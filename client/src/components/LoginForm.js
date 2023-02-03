@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import logo from "../styles/logo-no-background.png";
+
 import { useHistory } from "react-router-dom";
 import "../styles/LoginForm.css";
-function LoginForm({ onLogin }) {
+function LoginForm({ onLogin, setShow }) {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +22,7 @@ function LoginForm({ onLogin }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
-        history.push("/");
+        history.push("/browse");
       } else {
         r.json().then((err) => {
           setErrors(err.errors);
@@ -33,8 +33,15 @@ function LoginForm({ onLogin }) {
 
   return (
     <div className="login-form">
-      <h1>Welcome back</h1>
-      <h2>Welcome back! Please enter your details.</h2>
+      <h1>Sign In</h1>
+
+        <div className="errors">
+          {errors ? (
+            errors.map((err) => <div key={err} className="error">Oops! {err}</div>)
+          ) : (
+            <></>
+          )}
+        </div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input
@@ -57,14 +64,18 @@ function LoginForm({ onLogin }) {
         />
 
         <button type="submit">{isLoading ? "Loading..." : "Sign In"}</button>
-
-        <div className="errors">
-          {errors ? (
-            errors.map((err) => <div key={err}>Oops! {err}</div>)
-          ) : (
-            <></>
-          )}
-        </div>
+        <div className="login-text">            
+              <p className="small-text">
+                Don't have an account? &nbsp;
+                <button
+                  onClick={() => {
+                    setShow(false);
+                  }}
+                >
+                  Sign Up
+                </button>
+              </p>
+            </div>
       </form>
     </div>
   );

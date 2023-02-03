@@ -1,148 +1,210 @@
 .home {
-  padding: 5% 10% 0% 10%;
-  display: flex;
-  overflow:hidden;
+ display:block;
+ height: 100%;
 }
 
-.home-left > h4 {
-  font-family: sans-serif;
-  line-height: 0.7;
-  font-size: 1.2vw;
-  transform: scale(1, 0.9);
-  margin-bottom: 0;
+.home-banner{
+  padding: 1% 37%;
+  background-color: white;
 }
-.home-left > h2 {
-  margin: 0;
-  font-size: 5.5vw;
-  color: rgb(29, 29, 29);
-  position: relative;
-}
-.squiggle {
-  position: relative;
-  height: 3vw;
-  width: 15vw;
-  margin-left: 43%;
-  margin-top: -20%;
-  transform: rotate(-2deg);
-}
-.home-left > h3 {
-  color: rgb(77, 77, 77);
-  font-weight: lighter;
-  font-size: 1.5vw;
-  font-family: sans-serif;
-  margin-bottom: 0;
-  margin-top: -10%;
-}
-.home-btns {
-  padding: 5% 0% 0% 0%;
-}
-.home-btn {
-  border-radius: 100px;
-  padding: 1vw;
-  margin-right: 1vw;
-  font-family: sans-serif;
-  font-weight: bold;
-  opacity: 70%;
-  font-size: .8vw;
-}
-.home-btn:hover {
-  opacity: 100%;
-}
-.review-btn {
-  background-color: rgb(120, 120, 250);
+.new-btn{
+  pointer-events:none;
+  background-color: rgb(223,6,17);
   color: white;
+  padding: 3px 12px;
+  margin: 0px 15px;
+  font-weight: bold;
+  border:none;
+  border-radius: 20px;
+
+}
+.home-banner > p1{
+ font-size: 18px; 
+}
+.home-banner >p1 > span{
+  font-weight: bolder;
+  font-size: 23px;
+}
+.home-banner-learn-more{
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+} 
+
+.home-banner-learn-more > span{
+  font-size: 25px;
+}
+
+.home-hero{
+
+    background: radial-gradient(rgba(0,0,0,0.9), rgba(0,0,0,1));
+    height: 70vh;
+    position: relative;
+    z-index: 0;
+
+}
+.home-hero-logo{
+  position: relative;
+  width: 200px;
+  bottom: 67vh;
+  left: 3vh;
+}
+.home-hero-bg{
+  height: 70vh;
+  max-width: 100%;
+  min-width: 100%;
+  opacity: 50%;
+ object-fit: cover;
+ position: relative;
+ z-index: -2;
+
+}
+.home-hero-text{
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  color: white;
+  bottom: 50vh;
+  padding: 0 20%;
+}
+
+.home-hero-text > h1 {
+  font-weight: bold;
+  font-size: 65px;
+}
+
+.home-hero-text > h2{
+  font-size: 25px;
+} 
+.home-hero-text > h3{
+  padding-top: 20px;
+  font-size: 22px;
+}
+
+
+.email-form{
+  display:flex;
+  justify-content: center;
+  text-align: center;
+
+}
+.email-form-text{
+  margin-top: 5%;
+  padding: 35px 20px 35px 5px;
+  height: 60px;
+  width: 65%;
+  border-top-left-radius:5px;
+  border-bottom-left-radius:5px;
+} 
+
+.email-form-submit{
+  height: 75px;
   border: none;
+  padding: 0 20px;
+  font-size: 25px;
+  line-height: 0px;
+  background-color: rgb(223,6,17);
+  color: white;
 }
-.home-right {
-  margin-left: 12%;
+.email-form-submit:hover{
+  background-color: rgb(255, 57, 57);
 }
-.my-essays-btn {
-  background-color: rgb(208, 236, 245);
-  border: 2px solid rgb(161, 160, 160);
-}
-.hero-blob {
-  height: 30vw;
-  width: 30vw;
-  background-color: rgb(128, 128, 255);
-  border-radius: 50%;
-  display: inline-block;
-  position: relative;
-}
-.hero-img-container {
-  position: relative;
-  bottom: 33vw;
-  right: 5vw;
-}
-.hero-img-container > img {
-  width: 40vw;
+
+.row-break{
+  height:20px;
+  background-color: rgb(34,34,34);
+  width: 100%;
 }
 
 
-@media only screen and (max-width: 600px) {
-  .home{
-    flex-direction: column;
-    text-align :center;
-  }
-  
-.home-left > h4 {
-  margin: 5% 0;
-  font-size: 14px;
+.home-row{
+  padding: 5% 20%;
+  background-color: black;
+  display:flex;
 }
-.home-left > h2 {
-  margin-bottom: 5%;
+
+.home-row-text{
+  color: white;
+  padding: 0 20px;
+}
+.home-row-text >h1{
+  font-weight: bold;
+  font-size:50px;
+  margin-bottom: 20px;
+}
+
+.home-row-text >h2{
   font-size: 30px;
+}
+.home-faq{
+  display:flex;
+  flex-direction: column;
+  padding: 2% 30%;
 
 }
-
-.home-left > h3 {
-  font-size: 10px;
-  margin: 5% 0;
+.home-faq >h1 {
+  text-align :center;
+  color: white;
+  font-size:60px;
+  margin-bottom: 20px;
 }
+.home-faq-container{
+  display:flex;
+  flex-direction: column;
 
-.home-btn {
-  margin-bottom: 15%;
-  font-size: 10px;
 }
+.home-faq-question{
+  background-color: rgb(48,48,48);
+  color: white;
+  padding: 20px 20px 30px 30px;
 }
-
-@media only screen and (max-width: 989px) {
-  .home{
-    flex-direction: column;
-    text-align :center;
-    padding-top: 10%;
-  }
-  .home-left > h4{
-    font-size: 3vw;
-  }
-  .home-left > h2{
-    font-size: 9vw;
-  }
-  .home-left > h3{
-    font-size: 2vw;
-    margin-top: -10%;
-  }
-  .home-btn{
-    font-size: 2.5vw;
-    padding: 2% 5%;
-  }
-  .home-right{
-    margin-top: 10%;
-  }
-  .squiggle{
-    height: 5vw;
-    width: 20vw;
-    margin-left: 60%;
+.home-faq-container > h3{
+  text-align: right;
+  font-weight: lighter;
+  font-size: 60px;
+  margin-top: -95px;
+  margin-right: 20px;
+  color: white;
   
+}
+.home-faq-container > p{
+  background-color:  rgb(48,48,48);
+  color: white;
+  padding: 20px 20px 30px 30px;
+  font-size: 30px;
+}
+.home-faq-text{
+  transform: 200ms;
+}
+
+.bottom-form-label{
+  color: white;
+  font-size: 20px;
+  text-align :center;
+  margin-bottom: -10px;
+}
+.hidden{
+  height: 0px;
+  visibility: hidden;
+}
+/* 
+RESPONSIVE */
+@media only screen and (max-width: 1750px) {
+  .home-banner{
+    text-align: center;
+    padding: 1% 0;
   }
-  .hero-blob{
-    height: 50vw;
-    width: 50vw;
+  .home-hero-text > h1{
+    font-size: 55px;
   }
-  .hero-img-container {
-    bottom: 48vw;
-    right: 0vw;
-  }
-  .hero-img-container > img {
-    width: 60vw;
+  .home-row{
+  padding: 5% 5%;
+
+}
+}
+
+@media only screen and (max-width: 1000px) {
+  .home-hero-text{
+    padding: 0 5%;
   }
 }

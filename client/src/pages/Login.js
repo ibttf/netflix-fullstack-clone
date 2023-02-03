@@ -1,7 +1,7 @@
 import { useState } from "react";
-import hero from "../styles/hero-login.png";
-import background from "../styles/hero-background.png";
-import logo from "../styles/logo-no-background.png";
+import background from "../styles/login-bg.jpg";
+import logo from "../styles/logo.png"
+
 import LoginForm from "../components/LoginForm";
 import SignUpForm from "../components/SignUpForm";
 import { useHistory, Link } from "react-router-dom";
@@ -12,48 +12,33 @@ function Login({ onLogin }) {
 
   return (
     <div className="login">
-      <div className="login-left">
-        <img src={background} className="hero-background"></img>
-        <img src={hero} className="hero"></img>
+      <div className="logo-container">
+        <Link to="/">        <img src={logo} className="login-logo"></img></Link>
+
       </div>
-      <div className="login-right">
-        <Link to="/">
-          <img src={logo} className="login-img"></img>
-        </Link>
+        <div className="hero-background-container">
+          <img src={background} className="hero-background"></img>
+        </div>
+
+
+
 
         {showLogin ? (
-          <>
-            <LoginForm onLogin={onLogin} />
+          <div className="login-form-container">
+            <LoginForm onLogin={onLogin} setShow={setShowLogin}/>
             <div />
-            <p className="small-text">
-              Don't have an account? &nbsp;
-              <button
-                onClick={() => {
-                  setShowLogin(false);
-                }}
-              >
-                Sign Up
-              </button>
-            </p>
-          </>
+            
+
+          </div>
         ) : (
-          <>
-            <SignUpForm onLogin={onLogin} />
+          <div className="login-form-container">
+            <SignUpForm onLogin={onLogin} setShow={setShowLogin} />
             <div />
-            <p className="small-text">
-              Already have an account? &nbsp;
-              <button
-                onClick={() => {
-                  setShowLogin(true);
-                }}
-              >
-                Log In
-              </button>
-            </p>
-          </>
+           
+
+          </div>
         )}
       </div>
-    </div>
   );
 }
 
