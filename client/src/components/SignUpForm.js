@@ -30,7 +30,7 @@ function SignUpForm({ onLogin, setShow }) {
         r.json().then((err) => setErrors(err.errors));
       }
     });
-    history.push("/browse");
+    history.push("/profile");
   }
 
   return (

@@ -1,154 +1,101 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import logo from "../styles/logo-no-background.png";
-import "../styles/Navbar.css";
+import logo from "../styles/logo.png"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMagnifyingGlass,
+  faUser,
+  faBell,
+  faAngleDown,
+} from "@fortawesome/free-solid-svg-icons";
 
-//bootstrap stuff
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import "../styles/NavBar.css";
+const Navbar = () => {
+  //hook for changing opacity on scroll
+  const [sticky, setSticky] = useState(false);
+
+  //hooks for changing 
+  const [isHome,setIsHome]=useState(false);
+  const [isTVShows,setIsTVShows]=useState(false);
+  const [isMovies,setIsMovies]=useState(false);
+  const [isNewPopular,setIsNewPopular]=useState(false);
+  const [isMyList,setIsMyList]=useState(false);
 
 
-function NavBar({ user, setUser }) {
-    function handleLogoutClick() {
-    fetch("/logout", { method: "DELETE" }).then((r) => {
-      if (r.ok) {
-        setUser(null);
-      }
-    });
+
+
+
+  //function to make the navbar black on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setSticky(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
+  //end
+
+
+  //function to change the way an item looks when clicked
+  function handleNavBarClick(e) {
+    for (const child of e.target.parentElement.childNodes) {
+      child.classList.remove("active");
+    }
+    e.target.classList.add("active");
   }
-    if (user) {
-        return (
-       <Navbar bg="light" expand="lg">
-      <Container>
+ //end
 
-        <Navbar.Brand>
-          <Link to="/">
-            <img src={logo} className="top-page-img"></img>
+
+
+
+  return (
+    <nav className={`${sticky ? "sticky" : ""}`}>
+      <div id="Navbar">
+        <Link to="/browse" className="navbar-button">
+            <img
+              className="logo"
+              src={logo}
+            ></img>
+        </Link>
+        <div className="navbar-left" onClick={handleNavBarClick}>
+
+
+          <Link to="/browse" className={`navbar-button ${isHome ? "active" : ""}` } onClick={()=>setIsHome(!isHome)}>
+            Home
           </Link>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link>
-              <Link to="/review" className="navbar-btn">Review</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/new"  className="navbar-btn">Submit</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/my-essays"  className="navbar-btn">My Essays</Link>
-            </Nav.Link>
-            <Nav.Link onClick={handleLogoutClick}> 
-              <Link to="/"  className="navbar-btn">Logout</Link>
-            </Nav.Link>
-            
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-
-    )
-  } else {
-      return (
-       <Navbar bg="light" expand="lg">
-      <Container>
-
-        <Navbar.Brand>
-          <Link to="/">
-            <img src={logo} className="top-page-img"></img>
+          <Link to="/browse" className={`navbar-button ${isTVShows? "active" : ""}` }  onClick={()=>setIsTVShows(!isTVShows)}>
+            TV Shows
           </Link>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link >
-              <Link to="/review" className="navbar-btn">Review</Link>
-            </Nav.Link>
-            <Nav.Link >
-              <Link to="/new"  className="navbar-btn">Submit</Link>
-            </Nav.Link>
-            <Nav.Link >
-              <Link to="/my-essays"  className="navbar-btn">My Essays</Link>
-            </Nav.Link>
-            <Nav.Link onClick={handleLogoutClick}> 
-              <Link to="/login"  className="navbar-btn">Login</Link>
-            </Nav.Link>
-            
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-    )
-  }
-}
- 
+          <Link to="/browse" className={`navbar-button ${isMovies ? "active" : ""}` } onClick={()=>setIsMovies(!isMovies)}>
+            Movies
+          </Link>
+          <Link to="/browse" className={`navbar-button ${isNewPopular ? "active" : ""}` } onClick={()=>setIsNewPopular(!isNewPopular)}>
+            New & Popular
+          </Link>
+          <Link to="/mylist" className={`navbar-button ${isMyList ? "active" : ""}` } onClick={()=>setIsMyList(!isMyList)}>
+            My List
+          </Link>
+        </div>
+        <div className="navbar-right">
+          <Link to="/search" className="navbar-button">
+            <FontAwesomeIcon icon={faMagnifyingGlass} className="navbar-icon" />
+          </Link>
+          <div className="navbar-button">
+            <FontAwesomeIcon icon={faBell} className="navbar-icon" />
+          </div>
+          <div className="navbar-button">
+            <FontAwesomeIcon icon={faUser} className="navbar-icon" /> 
+            <FontAwesomeIcon
+              icon={faAngleDown}
+              className="navbar-icon more-info"
+            />
+          </div>
 
 
-// function NavBar({ user, setUser }) {
-  // function handleLogoutClick() {
-  //   fetch("/logout", { method: "DELETE" }).then((r) => {
-  //     if (r.ok) {
-  //       setUser(null);
-  //     }
-  //   });
-  // }
-//   if (user) {
-//     return (
-//       <div className="top-page">
-//         <div className="top-page-img-container">
-//           <Link to="/">
-//             <img src={logo} className="top-page-img"></img>
-//           </Link>
-//         </div>
-//         <div className="navbar">
-//           <nav>
-//             <Link to="/review">
-//               <button className="navbar-btn">Review</button>
-//             </Link>
-//             <Link to="/new">
-//               <button className="navbar-btn">Submit</button>
-//             </Link>
-//             <Link to="/my-essays">
-//               <button className="navbar-btn">My Essays</button>
-//             </Link>
-//             <Link to="/">
-//               <button className="navbar-btn" onClick={handleLogoutClick}>
-//                 Logout
-//               </button>
-//             </Link>
-//           </nav>
-//         </div>
-//       </div>
-//     );
-//   } else {
-//     return (
-//       <div className="top-page">
-//         <div>
-//           <Link to="/">
-//             <img src={logo} className="top-page-img"></img>
-//           </Link>
-//         </div>
-//         <div className="navbar">
-//           <nav>
-//             <Link to="/login">
-//               <button className="navbar-btn">Review</button>
-//             </Link>
-//             <Link to="/login">
-//               <button className="navbar-btn">Submit</button>
-//             </Link>
-//             <Link to="/login">
-//               <button className="navbar-btn">My Essays</button>
-//             </Link>
-//             <Link to="/login">
-//               <button className="navbar-btn">Log in</button>
-//             </Link>
-//           </nav>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
+        </div>
+      </div>
+    </nav>
+  );
+};
 
-export default NavBar;
+export default Navbar;

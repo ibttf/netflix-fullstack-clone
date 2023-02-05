@@ -22,7 +22,7 @@ function LoginForm({ onLogin, setShow }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
-        history.push("/browse");
+        history.push("/profile");
       } else {
         r.json().then((err) => {
           setErrors(err.errors);

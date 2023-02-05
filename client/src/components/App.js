@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Login from "../pages/Login";
 import Home from "../pages/Home";
+import Profile from "../pages/Profile";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../styles/App.css";
 
@@ -58,6 +59,9 @@ function App() {
             <Route path="/login">
               <Login user={user} onLogin={setUser} />
               <LoginFooter />
+          </Route>
+           <Route path="/profile">
+              <Profile user={user}></Profile>
           </Route>
           <Route path="/browse">
               <NavBar user={user} setUser={setUser} />

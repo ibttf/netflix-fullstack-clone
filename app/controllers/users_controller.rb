@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   def create
     user = User.create!(user_params)
     session[:user_id] = user.id
+    # profile=Profile.create(tag: "User 1")
+    # user.profiles << profile
     render json: user, status: :created
   end
 

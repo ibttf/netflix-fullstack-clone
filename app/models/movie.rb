@@ -1,5 +1,5 @@
 class Movie < ApplicationRecord
-    belongs_to :user
-
+    has_many :profiles
+    has_many :users, through: :profiles
     validates :movie_id, presence: true
 end
