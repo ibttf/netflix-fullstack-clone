@@ -6,7 +6,6 @@ import add from "../styles/add.png"
 
 import Loading from './Loading';
 const Profile = () => {
-
     const history=useHistory();
     const [profiles, setProfiles]=useState([]);
     const[isLoading,setIsLoading]=useState(false);

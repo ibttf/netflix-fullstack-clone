@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 
+import Loading from "./Loading";
 import "../styles/Browse.css"
 const Browse = () => {
         const apiKey = "e738b0c021bcb38d799382dd3f2f81d6";
@@ -11,29 +12,35 @@ const Browse = () => {
         const [description, setDescription] = useState("");
         const [image, setImage] = useState("");
         const [ranking, setRanking] = useState(0);
+        const [isLoading,setIsLoading]=useState(false);
 
 
         const history = useHistory();
         useEffect(() => {
+            setIsLoading(true);
             fetch(
             `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`
             )
             .then((data) => data.json())
             .then((movies) => {
+                setIsLoading(false);
                 const random = parseInt(Math.random() * movies.results.length - 1);
-                console.log(movies.results[random]);
                 setMovie(movies.results[random]);
                 setRanking(random + 1);
                 setTitle(movies.results[random].title);
                 setDescription(movies.results[random].overview);
                 setImage(movies.results[random].backdrop_path);
             });
+
+          
         }, []);
 
         function handleMoreInfoClick() {
             history.replace(`/${movie.id}`);
         }
-
+    if(isLoading){
+        return <Loading />
+    }
     return (
         <div className="browse">
           {/* HERO */}

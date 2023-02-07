@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   get "/me", to: "users#show"
   get "/show-profiles", to: "users#show_profiles"
   get "/get-current-profile", to: "users#get_current_profile"
-
+  get "/show-profiles-except-current",to: "users#show_profiles_except_current"
   patch "/select-profile", to: "users#select_profile"
   patch "/update-profile", to: "profiles#update_profile"
   post "/login", to: "sessions#create"
   post "/signup", to: "users#create"
-  post "/add-profile",to: "users#add_profile"
+  post "/add-profile", to: "users#add_profile"
 
   delete "/logout", to: "sessions#destroy"
   

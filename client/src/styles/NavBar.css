@@ -12,6 +12,7 @@
   padding: 20px 0;
   max-width: 100vw;
   overflow-x:hidden;
+
 }
 nav {
   transition: 0.3s;
@@ -20,7 +21,7 @@ nav.sticky {
   background-color: black;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1;
 }
 .logo{
   position: relative;
@@ -57,19 +58,96 @@ nav.sticky {
 .navbar-icon{
   font-size: 20px;
 }
+.navbar-img{
+  max-height: 40px;
+  border-radius: 5px;
+}
+.more-info{
+  transition: 300ms;
+  padding-left: 5px;
+}
+.more-info:hover {
+ transform: rotate(180deg);
+}
+.dropdown {
+  position: relative;
+  display: block;
+}
 
+.dropdown-content{ 
+  display: none;
+  position: absolute;
+  width: 10%;
+  padding: 10px 10px;
+
+  margin-left: 85%;
+  z-index: 1;
+}
+.dropdown-content-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: lightgray;
+
+}
+.dropdown-content-item >p{
+  margin-top: 15px;
+  padding-left: 5px;
+}
+.dropdown-content-item:hover{
+  cursor: pointer;
+  color: white;
+}
+.dropdown-content-item >img{
+  max-height: 40px;
+}
+.profile-dropdown-link{
+  text-decoration: none;
+}
+
+
+
+
+.hover {
+  display: block !important;
+  border-radius: 10px;
+  margin-top: -1%;
+
+  text-align: left;
+  background-color: rgb(6,6,6);
+  
+}
+.dropdown-content a:hover {background-color: #ddd;}
 
 /* RESPONSIVE */
+
+@media only screen and (max-width: 1300px) {
+  .more-info{
+    display: none;
+  }
+  .dropdown-content{ 
+  display: none;
+  position: absolute;
+  width: 10%;
+  padding: 10px 10px;
+  font-size: 12px;
+  margin-left: 88%;
+  z-index: 1;
+}
+}
 @media only screen and (max-width: 1350px) {
   #Navbar{
     padding-top: 10px;
     align-items: center;
   }
-  .more-info{
-    height: 0;
-  }
+
   .navbar-left{
       padding-left: 5%;
+  }
+  .navbar-img{
+    max-height: 30px;
+    border-radius: 5px;
+    padding-right: 20px;
   }
 }
 @media only screen and (max-width: 800px) {
@@ -87,5 +165,13 @@ nav.sticky {
 .navbar-icon{
   font-size: 10px;
 }
-
+  .navbar-img{
+    max-height: 15px;
+    border-radius: 5px;
+  }
+  .dropdown-content{ 
+    padding:  0 10px;
+    font-size: 10px;
+  }
+  .dropdown-content-item >p{margin-top: 5px;}
 }

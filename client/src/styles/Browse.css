@@ -1,6 +1,3 @@
-.browse{
-
-}
 
 /****************/
 /* HERO */
@@ -20,13 +17,13 @@
   overflow-y: hidden;
   position: relative;
   z-index: -2;
-  bottom: 40px;
+  bottom: 80px;
   z-index: -1;
 }
 
 .hero-text {
   position: absolute;
-  top: 35%;
+  top: 25%;
   right: 30%;
 }
 .hero-title {

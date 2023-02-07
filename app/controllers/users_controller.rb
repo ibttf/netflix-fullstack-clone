@@ -17,6 +17,11 @@ class UsersController < ApplicationController
     render json: @current_user.profiles, status: :ok 
   end
 
+  def show_profiles_except_current
+    render json: Profile.all.select{|p| p.id!=@current_user.current_profile}, status: :ok
+
+  end
+
   def get_current_profile
     render json: @current_user.current_profile, status: :ok
   end
