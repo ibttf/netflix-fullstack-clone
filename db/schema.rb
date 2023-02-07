@@ -10,25 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_04_202943) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_05_002303) do
   create_table "movies", force: :cascade do |t|
     t.integer "movie_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
-  create_table "profiles", force: :cascade do |t|
-    t.integer "profile_id"
-    t.string "tag"
-    t.integer "user_id", null: false
+  create_table "profile_movies", force: :cascade do |t|
+    t.integer "profile_id", null: false
     t.integer "movie_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string "tag"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.integer "current_profile"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

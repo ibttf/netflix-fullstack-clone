@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+
 import "../styles/Browse.css"
 const Browse = () => {
         const apiKey = "e738b0c021bcb38d799382dd3f2f81d6";
@@ -10,6 +11,8 @@ const Browse = () => {
         const [description, setDescription] = useState("");
         const [image, setImage] = useState("");
         const [ranking, setRanking] = useState(0);
+
+
         const history = useHistory();
         useEffect(() => {
             fetch(

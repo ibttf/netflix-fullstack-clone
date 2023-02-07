@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   def create
     user = User.create!(user_params)
     session[:user_id] = user.id
-    # profile=Profile.create(tag: "User 1")
-    # user.profiles << profile
+    profile=Profile.create(tag: "User 1")
+    user.profiles << profile
     render json: user, status: :created
   end
 
@@ -13,6 +13,24 @@ class UsersController < ApplicationController
     render json: @current_user
   end
 
+  def show_profiles
+    render json: @current_user.profiles, status: :ok 
+  end
+
+  def get_current_profile
+    render json: @current_user.current_profile, status: :ok
+  end
+
+  def select_profile
+    @current_user.update(current_profile: params[:profileId])
+    render json: @current_user, status: :ok
+  end
+
+  def add_profile
+    profile=Profile.create(tag:params[:profileName])
+    @current_user.profiles << profile
+    render json: profile, status: :created
+  end
 
 
   # def submit_essay
@@ -35,7 +53,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:username, :password, :password_confirmation)
+    params.permit(:username, :password, :password_confirmation, :user)
   end
 
 end

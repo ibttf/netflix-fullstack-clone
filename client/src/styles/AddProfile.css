@@ -1,0 +1,122 @@
+.add-profile{
+    background-color: rgb(20,20,20);
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 10% 30%;
+}
+.add-profile > h1{
+    color: white;
+    font-size: 80px;
+
+}
+.add-profile >h2{
+    color: white;
+    font-weight: lighter;
+    padding: 2% 0;
+}
+.line-break{
+    width: 100%;
+    height: 1px;
+    background-color: lightgray;
+    margin: 20px 0 40px 0;
+}
+.add-profile-container >img {
+    max-height: 200px;
+}
+.add-profile-container > input{
+    margin-left: 10%;
+    font-size: 30px;
+    padding: 5px;
+    background-color: gray;
+    color: white;
+}
+.add-profile-container > input::placeholder{
+    color: white;
+}
+
+.add-profile-buttons{
+    padding-top: 20px;
+}
+.add-profile-continue{
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: 2px solid white;
+    font-size: 25px;
+}
+
+.add-profile-continue:hover{
+    background-color: red;
+    color: white;
+    border: 2px solid red;
+}
+
+.add-profile-cancel{
+    background-color: rgb(20,20,20);
+    color: gray;
+    padding: 10px 20px;
+    border: 2px solid gray;
+    margin-left: 30px;
+    font-size: 25px;
+}
+
+.add-profile-cancel:hover{
+    color: white;
+    border: 2px solid white;
+}
+
+
+
+@media only screen and (max-width: 1700px) {
+    .add-profile-container{
+        display: flex;
+        align-items: center;
+    }
+    .add-profile-container > input{
+        max-width: 50%;
+
+
+    }
+
+
+}
+@media only screen and (max-width: 700px) {
+
+    .add-profile > h1{
+        padding: 20% 20%;
+        font-size: 30px;
+        text-align: left;
+    }
+    .add-profile >h2{
+        font-size: 15px;
+    }
+    .add-profile-continue{
+
+        padding: 5px 10px;
+
+        font-size: 10px;
+    }
+    .add-profile-container{
+        display: flex;
+        align-items: center;
+    }
+    .add-profile-container >img {
+        max-height: 100px;
+    }
+    .add-profile-container > input{
+
+        font-size: 10px;
+        max-height: 20px;
+        max-width: 100px;
+        padding: 10px 20px;
+        background-color: gray;
+        color: white;
+    }
+    .add-profile-cancel{
+        padding: 5px 10px;
+
+        font-size: 10px;
+    }
+}

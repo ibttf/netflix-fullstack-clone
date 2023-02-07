@@ -1,3 +1,91 @@
 .profile{
-    background-color: rgb(6,6,6);
+    background-color: rgb(20,20,20);
+    height: 100vh;
+}
+.profile > h1{
+    color: white;
+    text-align: center;
+    padding-top: 10%;
+    font-size: 80px;
+
+}
+.user-profiles{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5%;
+    width: 100%;
+    text-align: center;
+}
+.user-profile{
+    width: auto;
+    text-align: center;
+    padding: 0 10px;
+    
+
+}
+.user-profile > img {
+    max-height: 200px;
+    max-width: 200px;
+    border-radius: 10px;
+    border: 5px solid rgb(20,20,20);
+}
+.user-profile > img:hover {
+    border: 5px solid gray;
+}
+.user-profile > h1{
+    padding-top: 10px;
+    font-size: 20px;
+    color: rgb(136, 136, 136);
+}
+.add-img{
+    min-height: 100px;
+    min-width: 100px;
+}
+.add-img:hover{
+    background-color: white;
+    border: 5px solid white;
+}
+.manage-profiles-button-container{
+    width: 100%;
+    text-align: center;
+
+}
+.manage-profiles-button{
+    border: 2px solid lightgray;
+    background-color: rgb(20,20,20);
+    color: lightgray;
+    
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 5%;
+    padding: 10px 30px;
+}
+.manage-profiles-button:hover{
+    border: 2px solid white;
+    color: white;
+}
+.profile-link{
+    text-decoration: none;
+}
+@media only screen and (max-width: 700px) {
+
+    .profile > h1{
+        padding: 20% 20%;
+        font-size: 40px;
+    }
+    .user-profile > img {
+        max-height: 100px;
+        max-width: 100px;
+        border-radius: 5px;
+    }
+    .user-profile > h1{
+        font-size: 15px;
+    }
+    .manage-profiles-button{
+    font-size: 15px;
+
+    padding: 5px 15px;
+    margin-top: 20%;
+    }
 }

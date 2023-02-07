@@ -1,0 +1,4 @@
+class ProfileMoviesController < ApplicationController
+  
+
+end

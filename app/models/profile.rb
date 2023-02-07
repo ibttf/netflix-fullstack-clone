@@ -1,5 +1,6 @@
 class Profile < ApplicationRecord
     belongs_to :user
-    belongs_to :movie
+    has_many :profile_movies
+    has_many :movies, through: :profile_movies
     validates :tag, presence: true
 end

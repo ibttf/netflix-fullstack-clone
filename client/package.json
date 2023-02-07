@@ -1,5 +1,5 @@
 {
-  "name": "revieword",
+  "name": "netflix-clone",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3000",
@@ -10,6 +10,7 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^5.2.3",
+    "cors": "^2.8.5",
     "react": "^17.0.2",
     "react-bootstrap": "^2.7.0",
     "react-dom": "^17.0.2",

@@ -7,13 +7,13 @@ import SignUpForm from "../components/SignUpForm";
 import { useHistory, Link } from "react-router-dom";
 import "../styles/Login.css";
 function Login({ onLogin }) {
-  const history = useHistory();
   const [showLogin, setShowLogin] = useState(true);
 
   return (
     <div className="login">
       <div className="logo-container">
-        <Link to="/">        <img src={logo} className="login-logo"></img></Link>
+        <Link to="/">        
+        <img src={logo} className="login-logo"></img></Link>
 
       </div>
         <div className="hero-background-container">

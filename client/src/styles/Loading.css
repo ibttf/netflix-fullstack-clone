@@ -1,0 +1,8 @@
+.loading{
+    background-color: rgb(6,6,6);
+    text-align: center;
+    padding: 20% 0;
+    font-size: 80px;
+    color: white;   
+    min-height: 100vh;
+}

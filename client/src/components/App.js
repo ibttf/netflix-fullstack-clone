@@ -4,6 +4,9 @@ import NavBar from "./NavBar";
 import Login from "../pages/Login";
 import Home from "../pages/Home";
 import Profile from "../pages/Profile";
+import AddProfile from "../pages/AddProfile";
+import EditProfile from "../pages/EditProfile";
+import EditIndividualProfile from "../pages/EditIndividualProfile";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../styles/App.css";
 
@@ -61,7 +64,16 @@ function App() {
               <LoginFooter />
           </Route>
            <Route path="/profile">
-              <Profile user={user}></Profile>
+              <Profile></Profile>
+          </Route>
+          <Route path="/add-profile">
+              <AddProfile></AddProfile>
+          </Route>
+          <Route path="/edit-profile">
+              <EditProfile></EditProfile>
+          </Route>
+          <Route path="/my-profile/:id">
+              <EditIndividualProfile></EditIndividualProfile>
           </Route>
           <Route path="/browse">
               <NavBar user={user} setUser={setUser} />

@@ -5,9 +5,14 @@ Rails.application.routes.draw do
   resources :profiles, only: [:index,:create, :show, :destroy]
   resources :movies, only: [:index, :create, :show, :destroy]
   get "/me", to: "users#show"
+  get "/show-profiles", to: "users#show_profiles"
+  get "/get-current-profile", to: "users#get_current_profile"
 
+  patch "/select-profile", to: "users#select_profile"
+  patch "/update-profile", to: "profiles#update_profile"
   post "/login", to: "sessions#create"
   post "/signup", to: "users#create"
+  post "/add-profile",to: "users#add_profile"
 
   delete "/logout", to: "sessions#destroy"
   

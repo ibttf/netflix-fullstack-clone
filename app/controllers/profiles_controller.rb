@@ -21,6 +21,12 @@ class ProfilesController < ApplicationController
     head :no_content
   end
 
+  def update_profile
+    profile=Profile.find(params[:id])
+    profile.update(tag: params[:profileName])
+    render json: profile, status: :created
+  end
+  
 
   private
 
