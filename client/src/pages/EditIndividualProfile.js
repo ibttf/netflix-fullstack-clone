@@ -34,6 +34,16 @@ const EditIndividualProfile = () => {
         
     })
 }
+    function handleProfileDelete(){
+        setIsLoading(true);
+        fetch(`/profiles/${id}`, {
+            method: "DELETE",
+
+            }).then((r) => {
+            setIsLoading(false);
+        
+    })
+    }
     
     if (isLoading){
         return <Loading></Loading>
@@ -54,6 +64,10 @@ const EditIndividualProfile = () => {
                 <Link to="/profile">
                     <button className="add-profile-cancel">Cancel</button>
                 </Link>
+                <Link to="/profile">
+                    <button className="add-profile-delete" onClick={()=>handleProfileDelete()}>Delete</button>
+                </Link>
+
 
             </div>
         </div>

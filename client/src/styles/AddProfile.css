@@ -66,8 +66,19 @@
     color: white;
     border: 2px solid white;
 }
-
-
+.add-profile-delete{
+    background-color: rgb(20,20,20);
+    color: gray;
+    padding: 10px 20px;
+    border: 2px solid gray;
+    margin-left: 30px;
+    font-size: 25px;
+}
+.add-profile-delete:hover{
+    background-color: red;
+    color: white;
+    border: 2px solid red;
+}
 
 @media only screen and (max-width: 1700px) {
     .add-profile-container{
