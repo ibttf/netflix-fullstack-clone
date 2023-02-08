@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import user from "../styles/user.png"
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Loading from './Loading';
 
 const EditIndividualProfile = () => {

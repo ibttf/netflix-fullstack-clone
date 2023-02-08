@@ -92,3 +92,18 @@
   padding-left: 3%;
   font-size: 2vw;
 }
+
+/****************/
+/* RESPONSIVE  */
+/****************/
+
+
+@media only screen and (max-width: 800px) {
+.hero-image {
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 40vh;
+ object-fit: cover;
+}
+
+}

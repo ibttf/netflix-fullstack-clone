@@ -1,23 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import "../styles/MovieItem.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
   faPlus,
-  faPause,
   faAngleDown,
   faX,
-  faThumbsUp,
-  faThumbsDown,
 } from "@fortawesome/free-solid-svg-icons";
 
 
 function MovieItem({
   movie,
-  inMyList,
-  onAddDeleteClick,
-  isOutsideButInMyList,
+  ids
 }) {
   const name = movie.title ? movie.title : movie.name;
   const image = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
@@ -64,66 +59,49 @@ function MovieItem({
     37: "Western",
   };
 
-  const [isPlaying, setIsPlaying] = useState(false);
+
 
 
   //will either send a post or delete request to take away/or add to my list
-  function handleMyListClick(e) {
-    // console.log(e.currentTarget);
-    // if (e.currentTarget && e.currentTarget.className.includes("add")) {
-    //   fetch("http://localhost:8000/movies", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(movie),
-    //   }).then((data) => data.json());
-    // } else {
-    //   fetch(`http://localhost:8000/movies/${movie.id}`, {
-    //     method: "DELETE",
-    //   }).then((data) => data.json());
-    // }
-  }
+  function handleAddDeleteClick(e) {
+    console.log(e.currentTarget);
+    console.log(movie.id)
+    if (e.currentTarget && e.currentTarget.className.includes("add")) {
+      fetch("/add-movie", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({movieId: movie.id}),
+      }).then(() => console.log("clicked"));
+    } else {
+         fetch("/remove-movie", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({movieId: movie.id}),
+      }).then(() => window.location.reload());
+    }
+    }
 
 
-  //function to check whether a movie should be showing as like or remove like
+  //function to check whether a movie should be showing as add to my list or remove
   function renderAddDeleteButton() {
-    if (inMyList) {
+    if (ids.includes(movie.id)) {
       //if it is already in the list
 
       return [faX, "delete-button"];
-    } else {
-      //if it is not already in the list
-      if (isOutsideButInMyList) {
-        //it's outside the list, but an element that you'd added to the list
-
-        return [faX, "delete-button"];
-      } else {
-        //it's outside the list and you hadn't added it to the list yet
-
-        return [faPlus, "add-button"];
-      }
     }
+    return [faPlus, "add-button"];
+
   }
 
   function handleMoreInfoClick() {
-    //ADD THE POP UP HERE!!!
-    console.log(history);
+    //SENDS TO SAME PLACE AS PLAY BUTTON
     history.replace(`/${movie.id}`);
   }
 
-  const [isLiked, setIsLiked] = useState(false);
-
-  function handleLikeClick() {
-    setIsLiked(!isLiked);
-    //ADD THE PATCH REQUEST HERE OR DO SOMETHING WITH THIS
-  }
-  function renderLikeDislike() {
-    if (isLiked) {
-      return faThumbsDown;
-    }
-    return faThumbsUp;
-  }
 
 
 
@@ -141,20 +119,18 @@ function MovieItem({
             renderAddDeleteButton()[1]
           } handle-list-button`}
           onClick={(e) => {
-            handleMyListClick(e);
-            onAddDeleteClick();
+            handleAddDeleteClick(e);
+
           }}
         >
           <FontAwesomeIcon icon={renderAddDeleteButton()[0]}></FontAwesomeIcon>
         </button>
-        <button className="card-button" onClick={handleLikeClick}>
-          <FontAwesomeIcon icon={renderLikeDislike()}></FontAwesomeIcon>
-        </button>
+
 
 
         <button
           className="card-button angle-down-button"
-          onClick={handleMoreInfoClick}
+          onClick={()=>handleMoreInfoClick}
         >
           <FontAwesomeIcon icon={faAngleDown}></FontAwesomeIcon>
         </button>

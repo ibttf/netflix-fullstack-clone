@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import MovieItem from "./MovieItem";
 import "../styles/MovieList.css";
 
-function MovieList({ link, onAddDeleteClick, ids }) {
+function MovieList({ link, ids }) {
   const [movieList, setMovieList] = useState([]);
 
   useEffect(() => {
     fetch(link)
       .then((data) => data.json())
       .then((popularMovies) => {
+        console.log(popularMovies)
         setMovieList(popularMovies.results);
       });
   }, []);
@@ -53,9 +54,8 @@ function MovieList({ link, onAddDeleteClick, ids }) {
             <MovieItem
               key={movie.id}
               movie={movie}
-              inMyList={false}
-              isOutsideButInMyList={ids.includes(movie.id)}
-              onAddDeleteClick={onAddDeleteClick}
+              ids={ids}
+
             ></MovieItem>
           );
         })}

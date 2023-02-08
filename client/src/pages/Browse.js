@@ -27,7 +27,7 @@ const Browse = () => {
         const popularTVShows = `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&page=1&include_null_first_air_dates=false&with_watch_monetization_types=flatrate&with_status=0&with_type=0`;
         const dramaTVShows = `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&page=2&timezone=America%2FNew_York&include_null_first_air_dates=false&with_watch_monetization_types=flatrate&with_status=0&with_type=0&with_genre=18`;
         const horrorMovies = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=true&page=1&with_genres=27`;
-        const [toggle, setToggle] = useState(false);
+    
         const [myList, setMyList] = useState([]);  
 
 
@@ -71,9 +71,7 @@ const Browse = () => {
         function handleMoreInfoClick() {
             history.replace(`/${movie.id}`);
         }
-        function handleToggleClick(){
-            setToggle(!toggle);
-        }
+
 
     if(isLoading){
         return <Loading />
@@ -105,7 +103,7 @@ const Browse = () => {
             <div id="MovieGroups">
             <h3 className="movie-group-classifier">Trending Movies</h3>
             <MovieList
-                onAddDeleteClick={()=>{handleToggleClick()}}
+            
                 link={trendingMovies}
                 myList={myList}
                 ids={idArray}
@@ -114,14 +112,14 @@ const Browse = () => {
             <h3 className="movie-group-classifier">My List</h3>
             {/* THIS ONE IS FOR MY LIKED MOVIES, NOT JUST A COLLECTION OF TRENDING ONES */}
             {/* <MovieList
-                onAddDeleteClick={()=>{handleToggleClick()}}
+            
                 movies={myList}
                 ids={idArray}
             ></MovieList> */}
 
             <h3 className="movie-group-classifier">Movies Released This Year</h3>
             <MovieList
-                onAddDeleteClick={()=>{handleToggleClick()}}
+            
                 link={recentMovies}
                 myList={myList}
                 ids={idArray}
@@ -129,35 +127,35 @@ const Browse = () => {
 
             <h3 className="movie-group-classifier">Adventure Movies</h3>
             <MovieList
-                onAddDeleteClick={()=>{handleToggleClick()}}
+            
                 link={adventureMovies}
                 myList={myList}
                 ids={idArray}
             ></MovieList>
             <h3 className="movie-group-classifier">Animation Movies</h3>
             <MovieList
-                onAddDeleteClick={()=>{handleToggleClick()}}
+            
                 link={animationMovies}
                 myList={myList}
                 ids={idArray}
             ></MovieList>
             <h3 className="movie-group-classifier">Must Watch TV Shows</h3>
             <MovieList
-                onAddDeleteClick={()=>{handleToggleClick()}}
+            
                 link={popularTVShows}
                 myList={myList}
                 ids={idArray}
             ></MovieList>
             <h3 className="movie-group-classifier">Dramatic TV Shows</h3>
             <MovieList
-                onAddDeleteClick={()=>{handleToggleClick()}}
+            
                 link={dramaTVShows}
                 myList={myList}
                 ids={idArray}
             ></MovieList>
             <h3 className="movie-group-classifier">Horror Movies</h3>
             <MovieList
-                onAddDeleteClick={()=>{handleToggleClick()}}
+            
                 link={horrorMovies}
                 myList={myList}
                 ids={idArray}
