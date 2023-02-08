@@ -1,0 +1,76 @@
+.movie-list-container {
+  display: flex;
+  height: fit-content;
+  padding-bottom: 2%;
+}
+.movie-list-container:hover {
+  position: relative;
+  z-index: 4;
+
+}
+
+.movie-list-container:hover .handle {
+  opacity: 70%;
+  position: absolute;
+  z-index: 4;
+}
+
+.handle {
+  text-align: center;
+  width: 3%;
+  height: 300px;
+  position: absolute;
+  bottom: -50px;
+  z-index: 1;
+  display: block;
+  font-size: 50px;
+  font-weight: normal;
+  color: white;
+  background-color: rgb(14, 13, 13);
+  transition: 200ms all;
+  line-height: 240px;
+  opacity: 0%;
+}
+.handle:hover {
+  font-size: 70px;
+  opacity: 100%;
+  background-color: rgb(14, 13, 13);
+  cursor: pointer;
+}
+
+.left-handle {
+  left: 0;
+}
+.right-handle {
+  right: 0;
+}
+
+
+
+.slider {
+  --slider-index: 0;
+  display: flex;
+  padding: 0px 3%;
+  height: 160px;
+  transition: 0.3s;
+  max-height: fit-content;
+  transform: translateX(calc(var(--slider-index) * -80vw));
+  position: relative;
+  z-index: 2;
+}
+
+/* RESPONSIVE */
+@media only screen and (max-width: 800px) {
+  .handle{
+      width: 30px;
+      height: 200px;
+      bottom: 20%;
+  }
+
+}
+@media only screen and (max-width: 500px){
+  .handle{
+    height: 80px;
+    bottom: 180px;
+  }
+}

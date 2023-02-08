@@ -27,6 +27,10 @@ class ProfilesController < ApplicationController
     render json: profile, status: :created
   end
   
+  def show_movies
+    profile=Profile.find(@current_user.current_profile)
+    render json: profile.movies, status: :ok
+  end
 
   private
 

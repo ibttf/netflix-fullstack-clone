@@ -9,8 +9,6 @@ import EditProfile from "../pages/EditProfile";
 import EditIndividualProfile from "../pages/EditIndividualProfile";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../styles/App.css";
-
-//NEW STUFF
 import Browse from "../pages/Browse";
 import Footer from "./Footer";
 import LoginFooter from "./LoginFooter"
@@ -32,33 +30,7 @@ function App() {
     <>
       <main>
         <Switch>
-          {/* <Route path="/new">
-            <NavBar user={user} setUser={setUser} />
-            <NewEssay user={user} />
-            <Footer />
-          </Route> */}
-          {/* <Route path="/my-essays">
-            <NavBar user={user} setUser={setUser} />
-            <EssayList />
-          </Route>
-
-          <Route path="/review/:id">
-            <NavBar user={user} setUser={setUser} />
-            <IndividualEssay />
-          </Route>
-
-          <Route path="/my-essay/:essay">
-            <NavBar user={user} setUser={setUser} />
-            <ReviewedEssay />
-          </Route>
-          <Route path="/unreviewed-essay/:essay">
-            <NavBar user={user} setUser={setUser} />
-            <UnreviewedEssay />
-          </Route>
-          <Route path="/review">
-            <NavBar user={user} setUser={setUser} />
-            <EssayReview />
-          </Route> */}
+        
             <Route path="/login">
               <Login user={user} onLogin={setUser} />
               <LoginFooter />
