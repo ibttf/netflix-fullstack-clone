@@ -33,19 +33,18 @@ const Profile = () => {
             }).then((r)=>history.push("/browse"));
         }
 
-    if (!isLoading){
+    if (!isLoading && profiles.length>0){
         return (
                 <div className="profile">
                     <h1>Who's Watching?</h1>
                     <div className="user-profiles">
-                        {profiles.map((profile)=>{
-                        console.log(profile.id);
+                        {profiles ? profiles.map((profile)=>{
                         return (
                         <div className="user-profile" onClick={()=>selectProfile(profile.id)}>
                             <img src={userImg}></img>
                             <h1>{profile.tag}</h1>
                             </div>
-                        )})}
+                        )}): <div></div>}
                         <Link to ="/add-profile"  className="profile-link">
                             <div className="user-profile">
                                 <img src={add} className="add-img"></img>

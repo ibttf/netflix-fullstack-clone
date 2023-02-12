@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_02_05_002303) do
   create_table "movies", force: :cascade do |t|
-    t.integer "movie_id"
+    t.integer "movieId"
   end
 
   create_table "profile_movies", force: :cascade do |t|

@@ -97,16 +97,13 @@ const Navbar = ({user,setUser}) => {
           <Link to="/browse" className={`navbar-button ${isHome ? "active" : ""}` } onClick={()=>setIsHome(!isHome)}>
             Home
           </Link>
-          <Link to="/browse" className={`navbar-button ${isTVShows? "active" : ""}` }  onClick={()=>setIsTVShows(!isTVShows)}>
+          <Link to="/tv-shows" className={`navbar-button ${isTVShows? "active" : ""}` }  onClick={()=>setIsTVShows(!isTVShows)}>
             TV Shows
           </Link>
-          <Link to="/browse" className={`navbar-button ${isMovies ? "active" : ""}` } onClick={()=>setIsMovies(!isMovies)}>
+          <Link to="/movies" className={`navbar-button ${isMovies ? "active" : ""}` } onClick={()=>setIsMovies(!isMovies)}>
             Movies
           </Link>
-          <Link to="/browse" className={`navbar-button ${isNewPopular ? "active" : ""}` } onClick={()=>setIsNewPopular(!isNewPopular)}>
-            New & Popular
-          </Link>
-          <Link to="/mylist" className={`navbar-button ${isMyList ? "active" : ""}` } onClick={()=>setIsMyList(!isMyList)}>
+          <Link to="/my-list" className={`navbar-button ${isMyList ? "active" : ""}` } onClick={()=>setIsMyList(!isMyList)}>
             My List
           </Link>
         </div>

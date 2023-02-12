@@ -1,0 +1,11 @@
+.movie-grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 5%;
+  padding-left: 3%;
+  padding-right: 2%;
+  flex-wrap: nowrap !important;
+  overflow-x: auto;
+  height: 350px;
+}
+

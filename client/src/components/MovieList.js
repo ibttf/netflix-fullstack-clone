@@ -9,8 +9,10 @@ function MovieList({ link, ids }) {
     fetch(link)
       .then((data) => data.json())
       .then((popularMovies) => {
-        console.log(popularMovies)
+        //movieList state is going to be the results of the 20 objects sent by fetching link
+
         setMovieList(popularMovies.results);
+
       });
   }, []);
 
@@ -43,9 +45,9 @@ function MovieList({ link, ids }) {
         &#8249;
       </div>
 
-      {/* movies */}
+
       <div className={`slider`}>
-        {movieList.map((movie) => {
+        {movieList? movieList.map((movie) => {
           if (!movie.poster_path || !movie.backdrop_path) {
             return;
           }
@@ -55,10 +57,9 @@ function MovieList({ link, ids }) {
               key={movie.id}
               movie={movie}
               ids={ids}
-
             ></MovieItem>
           );
-        })}
+        }) : <div>Sorry, no movies available at this time.</div>}
       </div>
 
 

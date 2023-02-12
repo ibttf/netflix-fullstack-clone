@@ -9,12 +9,12 @@ Rails.application.routes.draw do
   get "/show-profiles", to: "users#show_profiles"
   get "/get-current-profile", to: "users#get_current_profile"
   get "/show-profiles-except-current", to: "users#show_profiles_except_current"
-  get"/show-movies", to: "#profiles#show_movies"
+  get "/show-movies", to: "profiles#show_movies"
 
   patch "/select-profile", to: "users#select_profile"
   patch "/update-profile", to: "profiles#update_profile"
-  patch "/remove-movie", to: "profiles#remove_movie"
-  patch "/add-movie", to: "profiles#add_movie"
+  patch "/remove-movie", to: "movies#remove_movie"
+  patch "/add-movie", to: "movies#add_movie"
 
   post "/login", to: "sessions#create"
   post "/signup", to: "users#create"

@@ -22,37 +22,25 @@ class MoviesController < ApplicationController
   end
 
   
-  # def unreviewed
-  #   render json: @current_user.essays.where(is_reviewed: nil ), status: :ok 
-  # end
+  def add_movie
+    profile=Profile.find(@current_user.current_profile)
+    movie=Movie.create(movieId: params[:movieId])
+    profile.movies << Movie.last
+    render json: profile, status: :ok
+  end
 
-  # def reviewed
-  #   render json: @current_user.essays.where(is_reviewed:true), status: :ok 
-  # end
-
-  # def reviewable
-  #   unreviewed_essays=Essay.all.where(is_reviewed: nil)
-  #   render json: unreviewed_essays.where.not(user_id:@current_user.id).sample(5), status: :ok
-  # end
-
-  # def current
-  #   render json: Essay.find(params[:id])
-  # end
-
-
-  # def submit_review
-  #   essay=Essay.find(params[:id])
-  #   essay.update(essay_review_params)
-  #   essay.update(reviewer_id: @current_user.id)
-  #   render json: essay
-
-  # end
+  def remove_movie
+    movie=Movie.find_by(movieId: params[:movieId])
+    movie.destroy
+    render json: profile, status: :ok
+  end
 
   private
 
-  def movies_params
-    params.permit(:movie_id)
+  def movie_params
+    params.permit(:movieId)
   end
+
 
 
 end

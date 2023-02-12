@@ -32,24 +32,14 @@ class ProfilesController < ApplicationController
     render json: profile.movies, status: :ok
   end
 
-  def add_movie
-      profile=Profile.find(@current_user.current_profile)
-      movie=Movie.create!(params[:movieId])
-      profile.movies << movie
-      render json: profile, status: :ok
-  end
-
-  def remove_movie
-      movie=Movie.find(params[:movieId])
-      movie.destroy
-      render json: profile, status: :ok
-  end
   
   private
 
   def profile_params
     params.permit(:tag)
   end
+
+
 
 
 end

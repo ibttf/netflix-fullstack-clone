@@ -1,0 +1,145 @@
+.movie-info-page{
+  position: relative;
+  z-index:-1;
+
+  color: white;
+  background-color: rgb(14, 13, 13);
+  bottom: 80px;
+  min-width: 100vw;
+}
+.hero-info-image {
+  max-width: 100%;
+  min-width: 100%;
+  overflow-y: hidden;
+  position: relative;
+  z-index: -2;
+  bottom: 80px;
+  z-index: -1;
+  opacity: 20%;
+}
+
+.hero-poster {
+  height: 40vw;
+  position: absolute;
+  top: 3%;
+  left: 10%;
+
+  border-radius: 10px;
+}
+
+.more-movie-info {
+  position: absolute !important;
+  left: 45%;
+  top: 3%;
+  width: 50%;
+  overflow: hidden;
+}
+.hero-title {
+  margin-bottom: 2%;
+  font-size: 4vw;
+}
+.genres-container {
+  display: flex !important;
+}
+.hero-genre {
+  border: solid 1px white;
+  text-align: center;
+  background-color: rgb(14, 13, 13);
+  min-width: 10%;
+  padding: 2% 2% 2% 2%;
+  margin: -1% 1%;
+  border-radius: 25px;
+}
+.hero-description {
+  font-weight: normal;
+  width: 90%;
+  font-size: 1.2vw;
+}
+.cast-name-title{
+    font-size: 2vw;
+    font-weight: bold;
+}
+.actor-title {
+  font-size: 1vw;
+  padding-top: 5px;
+  font-weight: bold;
+}
+.cast-actors-container {
+  display: flex;
+  line-height: 0;
+  width: 100%;
+}
+.cast-actor {
+  width: 100%;
+  margin: 0 2%;
+  text-align: center;
+}
+.actor-img {
+  max-height: 10vw;
+}
+.actor-title {
+  font-weight: normal;
+}
+.recommended-movies-title {
+  font-size: 40px;
+  font-weight: bold;
+  padding-left: 4%;
+  margin-bottom: 0;
+}
+.recommended::-webkit-scrollbar {
+  display: none;
+}
+.movie-videos-container {
+  height: 100%;
+
+  text-align: center;
+}
+.movie-video-title {
+  text-align: left !important;
+  padding-left: 22%;
+}
+.movie-info-trailer {
+  width: 100%;
+  height: 50vw;
+  padding: 0 15% 10% 15%;
+  border: none;
+}
+@media only screen and (max-width: 1200px) {
+    .movie-info-page {
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 40vh;
+    object-fit: cover;
+    }
+
+    .hero-poster {
+    height: 30vw;
+    position: absolute;
+    top: 5%;
+    left: 10%;
+
+    border-radius: 10px;
+    }
+    .hero-title {
+        margin-bottom: 2%;
+        font-size: 3vw;
+    }
+    .hero-description {
+        font-weight: normal;
+        width: 90%;
+        font-size: 1vw;
+    }
+    }
+
+    
+@media only screen and (max-width: 900px) {
+    .movie-info-page{
+        bottom: 0px;
+    }
+    .hero-poster{
+        top: 2%;
+    }
+    .more-movie-info{
+        top: 2%;
+    }
+}
