@@ -56,6 +56,4 @@ $ rails db: start
 $ cd client
 $ npm start
 
-```
-# Authors
-•Roy Lee
+
