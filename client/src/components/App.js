@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 import Login from "../pages/Login";
 import Home from "../pages/Home";
 import Profile from "../pages/Profile";
-import MyList from "./MyList";
+import Search from "../pages/Search";
 import AddProfile from "../pages/AddProfile";
 import EditProfile from "../pages/EditProfile";
 import EditIndividualProfile from "../pages/EditIndividualProfile";
@@ -36,7 +36,11 @@ function App() {
     <>
       <main>
         <Switch>
-        
+        <Route exact path="/search">
+          <NavBar user={user} setUser={setUser} />
+          <Search />
+          <Footer />
+        </Route>
             <Route path="/login">
               <Login user={user} onLogin={setUser} />
               <LoginFooter />
@@ -73,10 +77,11 @@ function App() {
               <Footer />
           </Route>
           <Route exact path="/:id">
-          <NavBar user={user} setUser={setUser} />
-          <MovieInfo apiKey={apiKey} />
+            <NavBar user={user} setUser={setUser} />
+            <MovieInfo apiKey={apiKey} />
             <Footer />
         </Route>
+
           <Route path="/">
             <Home />
             <Footer />

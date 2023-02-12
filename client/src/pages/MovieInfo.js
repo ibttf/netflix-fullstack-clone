@@ -113,7 +113,7 @@ function MovieInfo({ apiKey }) {
             <h3 className="hero-description">{movie.overview}</h3>
             <h2 className="hero-description cast-name-title">Cast</h2>
             <div className="cast-actors-container">
-              {cast.slice(0, 5).map((castObj) => {
+              {cast? cast.slice(0, 5).map((castObj) => {
                 return (
                   <div className="cast-actor">
                     <img
@@ -123,7 +123,7 @@ function MovieInfo({ apiKey }) {
                     <h3 className="actor-title">{castObj.name}</h3>
                   </div>
                 );
-              })}
+              }): ""}
             </div>
           </div>
 

@@ -6,7 +6,6 @@ function MovieGrid({ movieIds }) {
     const[ids,setIds]=useState([]);
 
 
-
     useEffect(()=>{
     fetch("/show-movies")
     .then((data) => data.json())
@@ -17,10 +16,11 @@ function MovieGrid({ movieIds }) {
         setIds([...idArray]) 
     })
 
+
 },[])
 
 
-  if (movieIds.length) {
+  if (movieIds) {
     movieIds = movieIds.filter((movieId) => {
       if (movieId.backdrop_path) {
         return true;
@@ -33,13 +33,13 @@ function MovieGrid({ movieIds }) {
     <div
       className={`movie-grid-container`}
     >
-      {/* {movieIds.length > 0 ? (
+      {movieIds ? (
         movieIds.map((movieId) => (
           <MovieItem key={movieId.id} ids={ids} />
         ))
       ) : (
         <></>
-      )} */}
+      )}
     </div>
   );
 }
