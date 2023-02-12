@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import Profile from "../pages/Profile";
 import Search from "../pages/Search";
 import AddProfile from "../pages/AddProfile";
+import MyListPage from "../pages/MyListPage";
 import EditProfile from "../pages/EditProfile";
 import EditIndividualProfile from "../pages/EditIndividualProfile";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -74,6 +75,7 @@ function App() {
           </Route>
             <Route path="/my-list">
               <NavBar user={user} onLogin={setUser} />
+              <MyListPage />
               <Footer />
           </Route>
           <Route exact path="/:id">
